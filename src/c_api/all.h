@@ -94,11 +94,13 @@ struct cNodeData
     cWstring* label; /**< morphology label of the token*/
     double weight; /**< weight assigned to the label by the classifier*/
     int lemmaId; /**< index of lemma in database*/
+    size_t splittedLabel_size;
 };
 
 cIntVector* cSyntaxNode_getChildrenIndexes(const cSyntaxNode* node);
-cNodeData cSyntaxNode_get_cNodeData(cSyntaxNode* node);
-cWstring* cSyntaxNode_getPunctuationByIndex(cSyntaxNode* node, size_t idx);
+cNodeData cSyntaxNode_get_cNodeData(cSyntaxNode* sNode);
+cWstring* cSyntaxNode_getPunctuationByIndex(cSyntaxNode* sNode, size_t idx);
+cWstring* cSyntaxNode_getSplittedLabelPieceByIndex(cSyntaxNode* sNode, size_t idx);
 
 }
 }

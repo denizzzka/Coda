@@ -156,6 +156,7 @@ cNodeData cSyntaxNode_get_cNodeData(cSyntaxNode* sNode)
 	r.label = (cWstring*) &node->label;
 	r.weight = node->weight;
 	r.lemmaId = node->lemmaId;
+	r.splittedLabel_size = node->splittedLabel.size();
 
 	return r;
 }
@@ -165,6 +166,13 @@ cWstring* cSyntaxNode_getPunctuationByIndex(cSyntaxNode* sNode, size_t idx)
 	auto node = (SyntaxParser::SyntaxNode*) sNode;
 
 	return (cWstring*) &node->punctuation[idx];
+}
+
+cWstring* cSyntaxNode_getSplittedLabelPieceByIndex(cSyntaxNode* sNode, size_t idx)
+{
+	auto node = (SyntaxParser::SyntaxNode*) sNode;
+
+	return (cWstring*) &node->splittedLabel[idx];
 }
 
 size_t cIntVector_getLength(const cIntVector* iv)
